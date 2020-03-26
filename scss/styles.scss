@@ -3,13 +3,18 @@
 @import "utils";
 @import "classes";
 @import "animations";
-
+@import "media-queries";
 
 .grid-container {
     display: grid;
     min-height: 100vh;
     grid:
         "picture header"auto "aside main"1fr "footer footer"auto / 350px auto;
+
+    @include xs {
+        grid:
+            "header"auto "main"auto "picture"auto "aside"auto "footer"auto / auto;
+    }
 }
 
 header {
@@ -23,11 +28,19 @@ header {
     justify-content: center;
     align-items: center;
 
+    @include xs {
+        padding: 5rem 2rem;
+    }
+
     h1 {
         font-size: 6rem;
         line-height: 8rem;
         font-weight: 300;
         letter-spacing: 3rem;
+
+        @include xs {
+            font-size: 4rem;
+        }
     }
 
     p {
@@ -145,6 +158,10 @@ main {
     grid-area: main;
     padding: 5rem;
 
+    @include xs {
+        padding: 5rem 1.5rem;
+    }
+
     h2 {
         margin-bottom: 4rem;
     }
@@ -200,6 +217,11 @@ footer {
     align-items: center;
     color: white;
     padding: 5rem;
+
+    @include xs {
+        padding: 5rem 1.5rem;
+    }
+
     background: var(--text);
 
     h2 {
@@ -242,6 +264,11 @@ footer {
         input {
             outline: 0;
             min-width: 400px;
+
+            @include xs {
+                min-width: 200px;
+            }
+
             padding: 1rem 2rem;
             border: 0;
             line-height: 2rem;
